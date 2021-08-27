@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">My Application</string>
+
+
+    <array name="Branch">
+        <item>ME</item>
+        <item>ECE</item>
+        <item>CSE</item>
+    </array>
+
+
+    <array name="Batch">
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+    </array>
 </resources>
