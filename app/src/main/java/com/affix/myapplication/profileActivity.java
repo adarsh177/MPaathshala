@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.affix.myapplication.BasicFunctions.spinnerGenerator;
+
 
 public class profileActivity extends AppCompatActivity {
     private CircleImageView profilePic;
@@ -17,21 +19,17 @@ public class profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        profilePic = findViewById(R.id.imageView);
-        batch=findViewById(R.id.batch);
-        branch=findViewById(R.id.branch);
-        spinnerGenerator(batch, R.array.Batch);
-        spinnerGenerator(branch, R.array.Branch);
+        profilePic = findViewById(R.id.courceImg);
+        batch=findViewById(R.id.courseBatch);
+        branch=findViewById(R.id.courseBranch);
+        spinnerGenerator(batch, R.array.Batch, this);
+        spinnerGenerator(branch, R.array.Branch,this);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
-    public void spinnerGenerator(Spinner spinner, int array) {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(profileActivity.this,array,R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
+
 
 }

@@ -18,13 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/courceImg"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:src="@drawable/ic_launcher_foreground"
-                app:civ_border_color="#000000"
-                app:civ_border_width="2dp"
+            <ImageView
+                android:id="@+id/courseImg"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_margin="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,35 +33,33 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <EditText
-                android:id="@+id/courceName"
-                android:editable="false"
+                android:id="@+id/courseName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="25dp"
                 android:gravity="center"
-                android:text="Name"
+                android:text="Course Name"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courceImg"
+                app:layout_constraintTop_toBottomOf="@+id/courseImg"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/courseCredits"
-                android:editable="false"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="25dp"
                 android:gravity="center"
-                android:text="Email"
+                android:text="Cretits"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courceName"
+                app:layout_constraintTop_toBottomOf="@+id/courseName"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Spinner
@@ -90,6 +88,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/courseBranch"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/curved_rectange"
+                android:text="Create"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/courseBatch" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
