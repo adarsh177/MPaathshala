@@ -8,6 +8,12 @@
         <item>CSE</item>
     </string-array>
 
+    <string-array name="All_Branch">
+        <item>ME</item>
+        <item>ECE</item>
+        <item>CSE</item>
+        <item>ALL</item>
+    </string-array>
 
     <string-array name="Batch">
         <item>19</item>
