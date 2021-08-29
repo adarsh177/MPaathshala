@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,12 +19,12 @@
             android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/courceImg"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:id="@+id/Img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:src="@drawable/ic_launcher_foreground"
                 app:civ_border_color="#000000"
-                app:civ_border_width="2dp"
+                app:civ_border_width="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,39 +33,48 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <EditText
-                android:id="@+id/courceName"
-                android:editable="false"
+                android:id="@+id/Name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="25dp"
-                android:gravity="center"
-                android:text="Name"
+                android:background="@drawable/rectanguler_outline"
+                android:editable="false"
+                android:hint="Name"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:text="Ojas"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courceImg"
+                app:layout_constraintTop_toBottomOf="@+id/Img"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:id="@+id/courseCredits"
-                android:editable="false"
+                android:id="@+id/Email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="25dp"
-                android:gravity="center"
-                android:text="Email"
+                android:background="@drawable/rectanguler_outline"
+                android:editable="false"
+                android:hint="Email"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:text="email@email.com"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courceName"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/Name"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="RtlSymmetry" />
 
             <Spinner
-                android:id="@+id/courseBranch"
+                android:id="@+id/Branch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -75,11 +84,11 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courseCredits"
+                app:layout_constraintTop_toBottomOf="@+id/Email"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Spinner
-                android:id="@+id/courseBatch"
+                android:id="@+id/Batch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -88,7 +97,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/courseBranch"
+                app:layout_constraintTop_toBottomOf="@+id/Branch"
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
