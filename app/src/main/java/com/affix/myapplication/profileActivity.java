@@ -19,9 +19,9 @@ public class profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        profilePic = findViewById(R.id.courceImg);
-        batch=findViewById(R.id.courseBatch);
-        branch=findViewById(R.id.courseBranch);
+        profilePic = findViewById(R.id.Img);
+        batch=findViewById(R.id.Batch);
+        branch=findViewById(R.id.Branch);
         spinnerGenerator(batch, R.array.Batch, this);
         spinnerGenerator(branch, R.array.Branch,this);
     }
