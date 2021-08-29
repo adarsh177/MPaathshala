@@ -8,12 +8,12 @@
     tools:context=".Teacher.AddBatch"
     android:orientation="vertical">
     <TextView
-        android:id="@+id/teamName"
+        android:id="@+id/SubjectName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Batches"
+        android:text="Subject"
         android:textSize="30dp"
         android:textColor="@color/black"/>
     <View
@@ -104,7 +104,7 @@
         android:layout_marginLeft="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/teamDeskRV"
+        android:id="@+id/membersList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rectanguler_outline"

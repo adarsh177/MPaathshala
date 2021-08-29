@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Teacher.AddBatch"></activity>
+        <activity android:name=".Teacher.AddContent" />
+        <activity android:name=".Teacher.AddBatch" />
         <activity android:name=".CourseContent" />
         <activity android:name=".Teacher.CreateCourse" />
-        <activity android:name=".Student.CourseDashboard" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
