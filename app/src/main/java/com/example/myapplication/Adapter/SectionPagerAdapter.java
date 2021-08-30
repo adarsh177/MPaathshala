@@ -1,13 +1,13 @@
-package com.affix.myapplication.Adapter;
+package com.example.myapplication.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.affix.myapplication.Fragments.Calander;
-import com.affix.myapplication.Fragments.SubjectDashboard;
-import com.affix.myapplication.Fragments.UpcommingActivities;
+import com.example.myapplication.Fragments.Calander;
+import com.example.myapplication.Fragments.SubjectDashboard;
+import com.example.myapplication.Fragments.UpcommingActivities;
 
 public class SectionPagerAdapter extends FragmentPagerAdapter {
 

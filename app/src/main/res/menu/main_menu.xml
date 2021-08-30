@@ -4,5 +4,10 @@
     <item
         android:id="@+id/profilemenu"
         android:title="profile" />
-
+    <item
+        android:id="@+id/createCourseMenu"
+        android:title="Create Subject" />
+    <item
+        android:id="@+id/Logout"
+        android:title="LogOut" />
 </menu>

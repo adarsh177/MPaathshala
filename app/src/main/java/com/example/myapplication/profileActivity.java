@@ -1,14 +1,13 @@
-package com.affix.myapplication;
+package com.example.myapplication;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.affix.myapplication.BasicFunctions.spinnerGenerator;
+import static com.example.myapplication.BasicFunctions.spinnerGenerator;
 
 
 public class profileActivity extends AppCompatActivity {

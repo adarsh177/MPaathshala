@@ -1,4 +1,4 @@
-package com.affix.myapplication;
+package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,15 +6,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-import com.affix.myapplication.Adapter.SectionPagerAdapter;
+import com.example.myapplication.Adapter.SectionPagerAdapter;
+import com.example.myapplication.Teacher.CreateCourse;
 import com.google.android.material.tabs.TabLayout;
-
-import java.io.Serializable;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         super.onOptionsItemSelected(item);
         if(item.getItemId() == R.id.profilemenu){
             startActivity(new Intent(MainActivity.this,profileActivity.class));
+        }
+        if(item.getItemId() == R.id.createCourseMenu){
+            startActivity(new Intent(MainActivity.this, CreateCourse.class));
+        }
+        if(item.getItemId() == R.id.Logout){
+            FirebaseAuth.getInstance().signOut();
+            finish();
+            startActivity(new Intent(MainActivity.this, Login.class));
         }
         return true;
     }

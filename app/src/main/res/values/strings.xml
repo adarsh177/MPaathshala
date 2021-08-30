@@ -15,6 +15,11 @@
         <item>ALL</item>
     </string-array>
 
+    <string-array name="Type">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
+
     <string-array name="Batch">
         <item>2019</item>
         <item>2020</item>

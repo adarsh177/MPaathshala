@@ -1,10 +1,10 @@
-package com.affix.myapplication.Teacher;
+package com.example.myapplication.Teacher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.affix.myapplication.R;
+import com.example.myapplication.R;
 
 public class AddContent extends AppCompatActivity {
 

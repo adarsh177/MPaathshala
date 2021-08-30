@@ -1,4 +1,4 @@
-package com.affix.myapplication;
+package com.example.myapplication;
 
 import android.content.Context;
 
