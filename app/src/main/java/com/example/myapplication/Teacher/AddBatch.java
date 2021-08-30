@@ -1,13 +1,13 @@
-package com.affix.myapplication.Teacher;
+package com.example.myapplication.Teacher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Spinner;
 
-import com.affix.myapplication.R;
+import com.example.myapplication.R;
 
-import static com.affix.myapplication.BasicFunctions.spinnerGenerator;
+import static com.example.myapplication.BasicFunctions.spinnerGenerator;
 
 public class AddBatch extends AppCompatActivity {
     private Spinner branch, batch;

@@ -1,4 +1,4 @@
-package com.affix.myapplication.Fragments;
+package com.example.myapplication.Fragments;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.affix.myapplication.R;
+import com.example.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.affix.myapplication">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
 
     <application
         android:allowBackup="true"
@@ -9,18 +10,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Teacher.AddContent" />
-        <activity android:name=".Teacher.AddBatch" />
-        <activity android:name=".CourseContent" />
-        <activity android:name=".Teacher.CreateCourse" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".splashScreenA"
+            tools:ignore="ExtraText">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".profileActivity" />
+
+        <activity android:name="com.example.myapplication.SignUp"/>
+        <activity android:name="com.example.myapplication.Login">
+
+        </activity>
+        <activity android:name="com.example.myapplication.Teacher.AddContent" />
+        <activity android:name="com.example.myapplication.Teacher.AddBatch" />
+        <activity android:name="com.example.myapplication.CourseContent" />
+        <activity android:name="com.example.myapplication.Teacher.CreateCourse" />
+        <activity android:name="com.example.myapplication.MainActivity">
+        </activity>
+        <activity android:name="com.example.myapplication.profileActivity" />
     </application>
 
 </manifest>

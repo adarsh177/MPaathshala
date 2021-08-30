@@ -1,4 +1,4 @@
-package com.affix.myapplication.Fragments;
+package com.example.myapplication.Fragments;
 
 import android.os.Bundle;
 
@@ -8,14 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.affix.myapplication.R;
+import com.example.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UpcommingActivities#newInstance} factory method to
+ * Use the {@link SubjectDashboard#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UpcommingActivities extends Fragment {
+public class SubjectDashboard extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class UpcommingActivities extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UpcommingActivities() {
+    public SubjectDashboard() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class UpcommingActivities extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UpcommingActivities.
+     * @return A new instance of fragment SubjectDashboard.
      */
     // TODO: Rename and change types and number of parameters
-    public static UpcommingActivities newInstance(String param1, String param2) {
-        UpcommingActivities fragment = new UpcommingActivities();
+    public static SubjectDashboard newInstance(String param1, String param2) {
+        SubjectDashboard fragment = new SubjectDashboard();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class UpcommingActivities extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_upcomming_activities, container, false);
+        return inflater.inflate(R.layout.fragment_subject_dashboard, container, false);
     }
 }

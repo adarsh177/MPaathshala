@@ -1,4 +1,4 @@
-package com.affix.myapplication;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
