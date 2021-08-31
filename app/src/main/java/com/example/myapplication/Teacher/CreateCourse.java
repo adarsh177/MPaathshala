@@ -57,7 +57,7 @@ public class CreateCourse extends AppCompatActivity {
         coursePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name.getText==null) {
+                if(name.getText()==null) {
                     openImage();
                     name.setEnabled(false);
                 }else{
