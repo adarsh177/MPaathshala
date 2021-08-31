@@ -39,7 +39,6 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/rectanguler_outline"
-                android:editable="false"
                 android:hint="Name"
                 android:padding="10dp"
                 android:paddingStart="20dp"
@@ -59,7 +58,6 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/rectanguler_outline"
-                android:editable="false"
                 android:hint="Email"
                 android:padding="10dp"
                 android:paddingStart="20dp"
@@ -99,6 +97,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Branch"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Save"
+                app:layout_constraintEnd_toEndOf="@+id/Batch"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/Batch"
+                app:layout_constraintTop_toBottomOf="@+id/Batch" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

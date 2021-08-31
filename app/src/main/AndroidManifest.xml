@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".splashScreenA"
+        <activity android:name=".ContentView"></activity>
+        <activity
+            android:name=".splashScreenA"
             tools:ignore="ExtraText">
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -19,18 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.myapplication.SignUp"/>
-        <activity android:name="com.example.myapplication.Login">
-
-        </activity>
-        <activity android:name="com.example.myapplication.Teacher.AddContent" />
-        <activity android:name="com.example.myapplication.Teacher.AddBatch" />
-        <activity android:name="com.example.myapplication.CourseContent" />
-        <activity android:name="com.example.myapplication.Teacher.CreateCourse" />
-        <activity android:name="com.example.myapplication.MainActivity">
-        </activity>
-        <activity android:name="com.example.myapplication.profileActivity" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".Login"></activity>
+        <activity android:name=".Teacher.AddContent" />
+        <activity android:name=".Teacher.AddBatch" />
+        <activity android:name=".CourseContent" />
+        <activity android:name=".Teacher.CreateCourse" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".profileActivity" />
     </application>
 
 </manifest>
