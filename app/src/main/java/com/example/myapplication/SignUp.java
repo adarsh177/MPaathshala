@@ -32,8 +32,8 @@ import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ public class SignUp extends AppCompatActivity {
     private TextView email,username,password;
     private FirebaseAuth auth;
     private FirebaseUser user;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private DatabaseReference userdata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,38 +74,6 @@ public class SignUp extends AppCompatActivity {
                 }else {
                     registerUser(emailInput.trim(), passwordInput.trim(), type.getSelectedItem().toString());
                 }
-
-//
-//                ActionCodeSettings actionCodeSettings = ActionCodeSettings.newBuilder()
-//                        .setAndroidPackageName(
-//                                /* yourPackageName= */ "...",
-//                                /* installIfNotAvailable= */ true,
-//                                /* minimumVersion= */ null)
-//                        .setHandleCodeInApp(true) // This must be set to true
-//                        .setUrl("https://google.com") // This URL needs to be whitelisted
-//                        .build();
-//
-//                List<AuthUI.IdpConfig> providers = Arrays.asList(
-//                        new AuthUI.IdpConfig.EmailBuilder()
-//                                .enableEmailLinkSignIn()
-//                                .setActionCodeSettings(actionCodeSettings)
-//                                .build(),
-//                        new AuthUI.IdpConfig.GoogleBuilder().build());
-//                if (AuthUI.canHandleIntent(getIntent())) {
-//                    if (getIntent().getExtras() == null) {
-//                        return;
-//                    }
-//                    String link = getIntent().getExtras().getString(ExtraConstants.EMAIL_LINK_SIGN_IN);
-//                    if (link != null) {
-//                        Intent signInIntent = AuthUI.getInstance()
-//                                .createSignInIntentBuilder()
-//                                .setEmailLink(link)
-//                                .setAvailableProviders(providers)
-//                                .build();
-//                        signInLauncher.launch(signInIntent);
-//                    }
-//                }
-//            }
             }
         });
     }
@@ -121,25 +89,24 @@ public class SignUp extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Verification Link sent successfully", Toast.LENGTH_SHORT).show();
-                                user = FirebaseAuth.getInstance().getCurrentUser();
+                                user=FirebaseAuth.getInstance().getCurrentUser();
+                                userdata= FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
                                 HashMap<String, String> usermap = new HashMap<>();
                                 usermap.put("userId", user.getUid());
                                 usermap.put("name", username.getText().toString().trim());
                                 usermap.put("email", user.getEmail().trim());
+                                usermap.put("type",type);
+                                if(type.equals("Teacher")){
+                                    usermap.put("batch","teacher");
+                                    usermap.put("branch","teacher");
+                                    usermap.put("image","");
+                                }else{
+                                    usermap.put("batch","student");
+                                    usermap.put("branch","student");
+                                    usermap.put("image","");
+                                }
+                                userdata.setValue(usermap);
 
-                                db.collection(""+type).document(user.getUid()).set(usermap)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-
-                                            }
-                                        });
 
                                 finish();
                             } else {
@@ -157,27 +124,4 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-
-//    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-//            new FirebaseAuthUIActivityResultContract(),
-//            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-//                @Override
-//                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-//                    onSignInResult(result);
-//                }
-//            }
-//    );
-//    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-//        IdpResponse response = result.getIdpResponse();
-//        if (result.getResultCode() == RESULT_OK) {
-//            // Successfully signed in
-//            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//            // ...
-//        } else {
-//            // Sign in failed. If response is null the user canceled the
-//            // sign-in flow using the back button. Otherwise check
-//            // response.getError().getErrorCode() and handle the error.
-//            // ...
-//        }
-//    }
 }

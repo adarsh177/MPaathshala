@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Models.userModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,6 +24,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
     private TextView email;
@@ -77,8 +83,30 @@ public class Login extends AppCompatActivity {
 
                 if(auth.getCurrentUser().isEmailVerified()){
                     Toast.makeText(Login.this, "log-in successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Login.this, MainActivity.class));
-                    finish();
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(auth.getCurrentUser().getUid());
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            final userModel user = snapshot.getValue(userModel.class);
+                            if(user.getType().equals("Teacher")){
+                                startActivity(new Intent(Login.this, MainActivity.class));
+                                finish();
+                            }else{
+                                if(user.getBatch().equals("Student")||user.getBranch().equals("Student")){
+                                    startActivity(new Intent(Login.this,profileActivity.class));
+                                }else{
+                                    startActivity(new Intent(Login.this, MainActivity.class));
+                                    finish();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
                 } else {
                     Toast.makeText(getApplicationContext(),"Please Verify Your Email",Toast.LENGTH_SHORT).show();
                 }
@@ -95,8 +123,31 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
-            if(auth.getCurrentUser().isEmailVerified()){
-                startActivity(new Intent(Login.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            if(auth.getCurrentUser().isEmailVerified()) {
+                Toast.makeText(Login.this, "log-in successfully", Toast.LENGTH_SHORT).show();
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(auth.getCurrentUser().getUid());
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        final userModel user = snapshot.getValue(userModel.class);
+                        if (user.getType().equals("Teacher")) {
+                            startActivity(new Intent(Login.this, MainActivity.class));
+                            finish();
+                        } else {
+                            if (user.getBatch().equals("Student") || user.getBranch().equals("Student")) {
+                                startActivity(new Intent(Login.this, profileActivity.class));
+                            } else {
+                                startActivity(new Intent(Login.this, MainActivity.class));
+                                finish();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         }
     }

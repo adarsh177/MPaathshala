@@ -5,11 +5,18 @@ import android.os.Bundle;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Models.userModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class splashScreenA extends AppCompatActivity {
 
@@ -19,7 +26,6 @@ public class splashScreenA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         logo=(ImageView) findViewById(R.id.logo_ss);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         if (logo!=null){
             TranslateAnimation animate = new TranslateAnimation(0,0, -700, 0);
             animate.setDuration(1000);
@@ -82,15 +88,33 @@ public class splashScreenA extends AppCompatActivity {
                         sleep(2 * 1000);
                         // After 3 seconds redirect to another intent
                         if (user != null) {
-                            if (auth.getCurrentUser().isEmailVerified()) {
-                                startActivity(new Intent(splashScreenA.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
-                            }else{
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(auth.getCurrentUser().getUid());
+                            reference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    final userModel user = snapshot.getValue(userModel.class);
+                                    if (user.getType().equals("Teacher")) {
+                                        startActivity(new Intent(splashScreenA.this, MainActivity.class));
+                                        finish();
+                                    } else {
+                                        if (user.getBatch().equals("Student") || user.getBranch().equals("Student")) {
+                                            startActivity(new Intent(splashScreenA.this, profileActivity.class));
+                                        } else {
+                                            startActivity(new Intent(splashScreenA.this, MainActivity.class));
+                                            finish();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        } else{
                                 Toast.makeText(splashScreenA.this, "Please Verify your mail", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(splashScreenA.this, Login.class));
                             }
-                        } else {
-                            startActivity(new Intent(splashScreenA.this, Login.class));
-                        }
                         //Remove activity
                         finish();
                     } catch (Exception ignored) {

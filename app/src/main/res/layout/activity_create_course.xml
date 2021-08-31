@@ -27,7 +27,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="Subject"
+        android:hint="Subject"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +37,7 @@
         app:layout_constraintVertical_bias="0.18" />
 
     <Button
+        android:id="@+id/createCourseBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create"
